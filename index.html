@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cooking Classy System</title> 
+    <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="bootstrap.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+    
+<style>
+
+    body{
+        font-family: 'Jost', sans-serif;
+        background-image: url('https://i.pinimg.com/736x/7c/b1/86/7cb18679659f791b1191bea97b74dfc0.jpg');
+        background-size: cover;
+    }
+    .container{
+        background-color: #6e6f79;
+        height: 300px;
+        width: 350px;
+        margin-left: 8%;
+        padding: 50px;
+        border-radius: 30px;
+    }
+    .grid-container {
+	  display: grid;
+	  grid-template-columns: 600px 300px; 
+	}
+	img{
+		height: 300px;
+	    width: 300px;
+	}
+
+</style>
+<body>
+
+    <p style="font-size: 45px; color: white; margin-left: 15%;">Welcome to Cooking Classy System!!</p>
+
+    <div class="grid-container">
+    	<div>
+    		<form action="{{ url_for('recommend')}}" method="post" class = "container">
+
+			    <p style="color: white; font-size: 20px">
+			        Find out the best dish you can make with the ingredients you have
+			    </p>
+
+			    <input  style = "height: 70px; border-radius: 20px; background-color: #1f2343; width: 90%; color: white;" type="string" name="ingred" placeholder=" Ingredients" required="required" />
+
+			    <br>
+
+			    <button style="height: 35px; width: 25%; border-radius: 10px; margin-top: 30px; background-color: #1f2343; color: white;" type="submit"> Suggest </button>
+
+		    </form>
+    	</div>
+	    <div>
+	    	<center style = "color: white; margin-bottom: 10px; font-size: 148%;">{{ recipe_pred }}</center>
+				
+	    	<a href="{{recipe_link}}" target="_blank"><img src="{{ImageLink}}" style = "color: white" alt="enter ingredients to get an image"></a>
+	    	<h3 style = "color: white;margin-left: 20px; font-size: 148%;">Click On the Image to know more</h3>
+	    </div>
+    </div>
+</body>
+</html>
